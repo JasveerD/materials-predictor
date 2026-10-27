@@ -1,0 +1,10 @@
+services:
+  app:
+    build: .
+    ports:
+      - "8000:8000"
+    environment:
+      - MP_API_KEY=${MP_API_KEY:-}
+    volumes:
+      - ./checkpoints:/app/checkpoints
+      - ./processed:/app/processed

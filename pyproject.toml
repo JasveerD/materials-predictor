@@ -1,0 +1,53 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "materials-predictor"
+version = "0.1.0"
+description = "Graph neural network for predicting material band gaps from crystal structures"
+requires-python = ">=3.11"
+license = "MIT"
+dependencies = [
+    "torch>=2.2,<3",
+    "torch-geometric>=2.5,<3",
+    "pymatgen>=2024.1,<2026",
+    "mp-api>=0.41,<1",
+    "fastapi>=0.110,<1",
+    "uvicorn[standard]>=0.27,<1",
+    "pydantic>=2.6,<3",
+    "plotly>=5.18,<6",
+    "numpy>=1.26,<2",
+    "scikit-learn>=1.4,<2",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=8.0,<9",
+    "httpx>=0.27,<1",
+    "ruff>=0.3,<1",
+    "mypy>=1.8,<2",
+]
+
+[tool.ruff]
+target-version = "py311"
+line-length = 99
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "N", "UP", "B", "SIM"]
+
+[tool.mypy]
+python_version = "3.11"
+warn_return_any = true
+warn_unused_configs = true
+
+[[tool.mypy.overrides]]
+module = ["model.*"]
+disallow_untyped_defs = false
+
+[[tool.mypy.overrides]]
+module = ["api.*"]
+disallow_untyped_defs = true
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
