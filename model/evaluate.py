@@ -125,7 +125,7 @@ def parity_plot(
 if __name__ == "__main__":
     ckpt = Path(__file__).resolve().parent.parent / "checkpoints" / "best_model.pt"
     test_data = torch.load(
-        Path(__file__).resolve().parent.parent / "processed" / "test.pt",
+        Path(__file__).resolve().parent.parent / "data" / "processed" / "test.pt",
         weights_only=False,
     )
 

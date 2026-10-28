@@ -14,7 +14,7 @@ from api.routes import init_routes, router
 from model.evaluate import load_model
 
 CHECKPOINT_PATH = Path(__file__).resolve().parent.parent / "checkpoints" / "best_model.pt"
-TRAIN_DATA_PATH = Path(__file__).resolve().parent.parent / "processed" / "train.pt"
+TRAIN_DATA_PATH = Path(__file__).resolve().parent.parent / "data" / "processed" / "train.pt"
 FRONTEND_DIST = Path(__file__).resolve().parent.parent / "frontend" / "dist"
 
 
