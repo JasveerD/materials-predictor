@@ -29,6 +29,9 @@ dev = [
     "mypy>=1.8,<2",
 ]
 
+[tool.hatch.build.targets.wheel]
+packages = ["data", "model", "api"]
+
 [tool.ruff]
 target-version = "py311"
 line-length = 99
